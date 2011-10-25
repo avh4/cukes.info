@@ -1,0 +1,10 @@
+require 'redcarpet'
+
+markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :fenced_code_blocks => true)
+
+Dir['src/**/*.md'].each do |md|
+  out = File.join('out', md.gsub(/^src\//, ''))
+  FileUtils.mkdir_p(File.dirname(out)) unless File.directory?(File.dirname(out))
+  html = markdown.render(IO.read(md))
+  puts html
+end
