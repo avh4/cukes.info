@@ -23,4 +23,11 @@ When you're using Java
 
 ### Ruby
 
+```ruby
+def some_ruby(hello)
+  # Comment <haha>
+  puts "Hi #{hello}"
+end
+```
+
 ### JRuby

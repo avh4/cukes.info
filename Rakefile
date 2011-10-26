@@ -1,8 +1,19 @@
 require 'redcarpet'
-markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :fenced_code_blocks => true)
+require 'cgi'
+
+class HTMLSHJS < Redcarpet::Render::HTML
+  def block_code(code, language)
+    %{<pre class="sh_#{language}"><code>#{CGI::escapeHTML(code)}</code></pre>}
+  end
+end
+
+markdown = Redcarpet::Markdown.new(HTMLSHJS, :fenced_code_blocks => true)
 
 desc 'Generate site in out/'
 task :site do
+  rm_rf 'out'
+  cp_r 'templates', 'out'
+
   template_head, template_foot = IO.read('templates/index.html').split('__CONTENT__')
 
   Dir['src/**/*.md'].each do |md|
