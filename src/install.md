@@ -1,4 +1,4 @@
-## Installation
+## Installing Cucumber
 
 Cucumber runs on many different platforms, and the installation procedure depends on what platform you are using.
 
@@ -70,3 +70,21 @@ Installing the various `cucumber-*` packages in a Maven project is just a matter
 ```
 
 You don't have to explicitly add a dependency on `cucumber-core` as all the other packages depend on it.
+
+### JRuby
+
+Cucumber-JVM is packaged as a Ruby gem, and can be installed as follows:
+
+```sh
+$ jruby -S gem install cucumber-jvm
+```
+
+Alternatively, if you are using [Bundler](http://gembundler.com/) you can use a `Gemfile`:
+
+```ruby
+source :rubygems
+
+group :test do
+  gem "cucumber-jvm"
+end
+```
