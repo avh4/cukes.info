@@ -7,7 +7,7 @@ class HTMLSHJS < Redcarpet::Render::HTML
   end
 end
 
-markdown = Redcarpet::Markdown.new(HTMLSHJS, :fenced_code_blocks => true)
+markdown = Redcarpet::Markdown.new(HTMLSHJS.new(:with_toc_data => true), :fenced_code_blocks => true)
 
 desc 'Generate site in out/'
 task :site do
