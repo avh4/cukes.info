@@ -1,4 +1,7 @@
 /* @override http://localhost/cukes.info/css/480.css */
+body{
+	padding: 3em 1em;
+}
 header{
 	height: 60px;
 }
