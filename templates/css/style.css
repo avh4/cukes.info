@@ -288,14 +288,27 @@ table { border-collapse: collapse; border-spacing: 0; }
 body{
 	background: #EEE;	
 	font-family: Helvetica, Arial;
-	font-size: 16px;
-	padding: 3em 1em;
+	font-size: 14px;
+	padding: 1em;
 	line-height: 1.5;
+	color: #111;
+}
+#main a{
+	text-decoration: none;
+	color: #13F;
+	background: #def;
+	padding: 2px 6px;
+	border-radius: 5px;
 }
 
+h1,h2,h3,h4,h5{
+	margin: 2em 0 .5em ;
+}
 h1, h2{
+	font-family: Georgia;
 	border-bottom: 1px solid #EEE;
-	margin: .5em -1em;
+	margin: 8px -1em;
+	line-height: 42px;
 	padding: 0 1em;
 }
 
@@ -303,6 +316,7 @@ header, #main{
 	display: block;
 	float: left;
 	width: 100%;
+	margin-bottom: 3em;
 }
 #logo{
 	font-family: Monaco;
@@ -312,6 +326,7 @@ header, #main{
 	position: relative;
 }
 #logo h2{
+	font-family: Monaco;
 	position: relative;
 	float: left;
 	letter-spacing: 1px;
@@ -321,6 +336,7 @@ header, #main{
 	padding: 0;
 	border: none;
 	font-size: 32px;
+	font-weight: normal;
 	line-height: 32px;
 }
 #logo a{
@@ -349,7 +365,7 @@ header, #main{
 #main pre{
 	font-size: 12px;
 	padding: 5px;
-	-webkit-border-radius: 5px;
+	margin-top: 0;
 	background-image: url(img/cukester.png);
 	background-repeat: no-repeat;
 	background-position: 98% 100%;
@@ -357,12 +373,9 @@ header, #main{
 }
 
 #nav{
-	position: absolute;
 	background: #333;
-	top: 0;
-	left: 0;
 	float: left;
-	margin: 0;
+	margin: 20px 0 0;
 	padding: 0;
 	width: 100%;
 }
