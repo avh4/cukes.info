@@ -20,16 +20,12 @@ header{
 	font-size: 13px;
 }
 #main {
-	width: 60%;
+	width: 70%;
 }
 aside{
-	width: 30%;
+	width: 20%;
 	float: left;
 	margin: 1em 0 0 2%;
 	padding: 0 2%;
-	background: white;
 	border-radius: 5px;
-}
-aside h2{
-	font-size: 15px;
 }

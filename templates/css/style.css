@@ -295,7 +295,7 @@ body{
 }
 #main a{
 	text-decoration: none;
-	color: #13F;
+	color: #159;
 	background: #def;
 	padding: 2px 6px;
 	border-radius: 5px;
@@ -372,44 +372,6 @@ header, #main{
 	background-size: 7%;
 }
 
-#nav{
-	background: #333;
-	float: left;
-	margin: 20px 0 0;
-	padding: 0;
-	width: 100%;
-}
-#nav a{
-	color:#DDD;
-	text-decoration: none;			
-}
-
-#nav li{
-	float: left;
-	list-style: none;
-	padding: 5px 1.8%;
-	width: 13%;
-	overflow: hidden;
-	white-space: nowrap;
-	cursor: pointer;
-}
-#nav li:hover{
-	background: #444;
-}
-#nav li:hover a{
-	color: #FF0;
-}
-#nav li h4{
-	font-size: 11px;
-	font-weight: bold;
-	margin: 0;
-	padding: 0;
-	text-align: center;
-}
-#nav li p{
-	display: none;
-}
-
 
 #main{
 	background: white;
@@ -437,5 +399,44 @@ th, td{
 	border-bottom: 1px solid #EEE;
 	padding: 2px 7px;
 }
+
+
+#nav{
+	color: #333;
+	padding: 0;
+	background: transparent;
+	margin-bottom: 10px;
+}
+#nav li{
+	list-style: none;
+	cursor: pointer;
+	margin-bottom: 5px;
+	padding: 7px;
+	border-bottom: 1px solid white;
+}
+#nav li a{
+	color: inherit;
+	text-align: left;
+	text-decoration: none;
+}
+#nav li:hover{
+	background: #F5F5F5;
+}
+#nav li:hover a{
+	color: #000;
+}
+#nav li h4{
+	color: #159;
+	font-size: 16px;
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+	text-align: left;
+}
+#nav li p{
+	display: block;
+	margin: 0;
+}
+
 
 /* @end */

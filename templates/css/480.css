@@ -1,14 +1,14 @@
 /* @override http://localhost/cukes.info/css/480.css */
 body{
-	padding: 3em 1em;
-}
-header{
-	height: 60px;
+	padding: 1em 1em;
 }
 
+header{
+	margin: 0;
+}
 #logo h2{
 	line-height: 80px;
-	font-size: 40px;
+	font-size: 32px;
 }
 #logo .bubble{
 	width: 32px;
@@ -16,5 +16,5 @@ header{
 	right: -32px;
 }
 #logo .title{
-	font-size: 11px;
+	font-size: 10px;
 }

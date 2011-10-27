@@ -9,52 +9,26 @@ header{
 
 #logo h2{
 	line-height: 80px;
-	font-size: 40px;
+	font-size: 32px;
 }
 #logo .bubble{
-	width: 42px;
-	height: 42px;
-	right: -42px;
+	width: 32px;
+	height: 32px;
+	right: -32px;
 }
 #logo .title{
-	font-size: 13px;
+	font-size: 10px;
 }
-
-#nav{
-	background: transparent;
-	margin-bottom: 10px;
+#main {
+	width: 60%;
 }
-#nav li{
+aside{
+	width: 30%;
 	float: left;
-	width: 100%;
-}
-#nav li a{
-	text-align: left;
-	color: #111;
-}
-
-#nav li{
-	float: left;
-	list-style: none;
-	padding: 5px 2%;
-	width: 96%;
-	cursor: pointer;
+	margin: 1em 0 0 2%;
+	padding: 0 2%;
 	border-radius: 5px;
 }
-#nav li:hover{
-	background: #def;
-}
-#nav li:hover a{
-	color: #000;
-}
-#nav li h4{
-	font-size: 16px;
-	font-weight: bold;
-	margin: 0;
-	padding: 0;
-	text-align: left;
-}
-#nav li p{
-	display: block;
-	margin: 0;
+aside h2{
+	font-size: 15px;
 }
