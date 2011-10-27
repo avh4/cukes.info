@@ -1,9 +1,16 @@
 /* @override http://localhost/cukes.info/css/992.css */
 body{
-	padding: 2em 2%;
+	padding: 0 2%;
+	padding-top: 136px;
+	background-image: url(img/cukester.png);
+	background-position: top center;
+	background-repeat: no-repeat;
+
 }
 header{
-	height: 60px;
+	display: block;
+}
+#logo:before{
 }
 
 #logo h2{
@@ -33,6 +40,7 @@ header{
 #main{
 	width: 50%;	
 	margin-left: 20%;
+	margin-top: 0;
 }
 aside{
 	width: 20%;
