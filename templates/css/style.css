@@ -39,7 +39,7 @@ body { margin: 0; font-size: 13px; line-height: 1.231; }
 
 body, button, input, select, textarea { font-family: sans-serif; color: #222; }
 
-/* 
+/*
  * These selection declarations have to be separate
  * No text-shadow: twitter.com/miketaylr/status/12228805301
  * Also: hot pink!
@@ -117,7 +117,7 @@ nav ul, nav ol { list-style: none; margin: 0; padding: 0; }
 img { border: 0; -ms-interpolation-mode: bicubic; }
 
 /*
- * Correct overflow displayed oddly in IE9 
+ * Correct overflow displayed oddly in IE9
  */
 
 svg:not(:root) {
@@ -139,9 +139,9 @@ figure { margin: 0; }
 form { margin: 0; }
 fieldset { border: 0; margin: 0; padding: 0; }
 
-/* 
- * 1. Correct color not inheriting in IE6/7/8/9 
- * 2. Correct alignment displayed oddly in IE6/7 
+/*
+ * 1. Correct color not inheriting in IE6/7/8/9
+ * 2. Correct alignment displayed oddly in IE6/7
  */
 
 legend { border: 0; *margin-left: -7px; padding: 0; }
@@ -178,9 +178,9 @@ button, input[type="button"], input[type="reset"], input[type="submit"] { cursor
 input[type="checkbox"], input[type="radio"] { box-sizing: border-box; }
 input[type="search"] { -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
 
-/* 
+/*
  * Remove inner padding and border in FF3/4
- * www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/ 
+ * www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/
  */
 
 button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
@@ -202,7 +202,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 /* =============================================================================
    Primary styles
-   Author: 
+   Author:
    ========================================================================== */
 
 
@@ -235,7 +235,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 /* Hide visually and from screenreaders, but maintain layout */
 .invisible { visibility: hidden; }
 
-/* Contain floats: nicolasgallagher.com/micro-clearfix-hack/ */ 
+/* Contain floats: nicolasgallagher.com/micro-clearfix-hack/ */
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
 .clearfix { zoom: 1; }
@@ -263,7 +263,7 @@ table { border-collapse: collapse; border-spacing: 0; }
    Print styles.
    Inlined to avoid required HTTP connection: www.phpied.com/delay-loading-your-print-css/
    ========================================================================== */
- 
+
 @media print {
   * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: sanbeiji.com/archives/953 */
   a, a:visited { color: #444 !important; text-decoration: underline; }
@@ -286,7 +286,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 /* @group Cukes */
 
 body{
-	background: #EEE;	
+	background: #EEE;
 	font-family: Helvetica, Arial;
 	font-size: 14px;
 	padding: 1em;
@@ -349,8 +349,8 @@ header, #main{
 	right: -20px;
 	display: block;
 	width: 20px;
-	height: 20px; 
-	background-image: url(img/bubble_256x256.png);	
+	height: 20px;
+	background-image: url(img/bubble_256x256.png);
 	background-size: 100%;
 	background-repeat: no-repeat;
 }
@@ -438,5 +438,110 @@ th, td{
 	margin: 0;
 }
 
+/* @end */
+
+/* @group Cukes-try */
+
+#feature, #step-definitions, #output, #errors {
+  width:700px;
+  font-family:'Bitstream Vera Sans Mono', Courier, monospace;
+  font-size:1em;
+}
+
+#feature {
+  height:16em;
+}
+
+#step-definitions {
+  height:28em;
+}
+
+#errors {
+  color: #a30;
+}
+
+/* html formatter */
+
+.cucumber-report .keyword {
+  font-weight: bold;
+}
+
+.cucumber-report .description {
+  font-style: italic;
+  margin-left: 20px;
+}
+
+.cucumber-report details > section {
+  margin-left: 20px;
+}
+
+.cucumber-report ol.steps {
+  list-style-type: none;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.cucumber-report .doc_string {
+  margin: 0 0 0 20px;
+}
+
+.cucumber-report table {
+  border-collapse: collapse;
+  border: 1px;
+  border-style: solid;
+}
+
+.cucumber-report td, .cucumber-report th {
+  border: 1px;
+  border-style: solid;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.cucumber-report table {
+  margin-left: 20px;
+}
+
+.cucumber-report thead {
+  background-color: #C0C0C0;
+}
+
+.cucumber-report .passed {
+  background-color: #C5D88A;
+}
+
+.cucumber-report .undefined, .cucumber-report .pending {
+  background-color: #EAEC2D;
+}
+
+.cucumber-report .skipped {
+  background-color: #2DEAEC;
+}
+
+.cucumber-report .failed {
+  background-color: #D88A8A;
+}
+
+.cucumber-report .tags {
+  display: inline;
+}
+
+.cucumber-report .tag {
+  margin-right: 0.25em;
+  color: #246ac1;
+}
+
+.cucumber-report .comments {
+  display: inline;
+}
+
+.cucumber-report .comment {
+  margin 0;
+  padding 0;
+}
+
+#cucumber-templates {
+  display: none;
+}
 
 /* @end */
