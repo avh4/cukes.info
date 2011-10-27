@@ -8,12 +8,18 @@
   Twitter: 
   Location: 
 
+  Dude: Eivind Ingebrigtsen
+  Site: http://eivindingebrigtsen.com
+  Twitter: @muff
+  Location: Oslo
+
+
 /* THANKS */
   Names (& URL): 
 
 /* SITE */
   Standards: HTML5, CSS3
-  Components: Modernizr, jQuery
+  Components: Modernizr, selectivizr, jQuery, Markdown, SH
   Software:
   
 

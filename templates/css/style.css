@@ -1,3 +1,7 @@
+/* @override http://localhost/cukes.info/css/style.css */
+
+/* @group Boilerplate */
+
 /*
  * HTML5 Boilerplate
  *
@@ -274,3 +278,151 @@ table { border-collapse: collapse; border-spacing: 0; }
   p, h2, h3 { orphans: 3; widows: 3; }
   h2, h3{ page-break-after: avoid; }
 }
+
+
+
+/* @end */
+
+/* @group Cukes */
+
+body{
+	background: #EEE;	
+	font-family: Helvetica, Arial;
+	font-size: 16px;
+	padding: 3em 1em;
+	line-height: 1.5;
+}
+
+h1, h2{
+	border-bottom: 1px solid #EEE;
+	margin: .5em -1em;
+	padding: 0 1em;
+}
+
+header, #main{
+	display: block;
+	float: left;
+	width: 100%;
+}
+#logo{
+	font-family: Monaco;
+	float: left;
+	margin: 0;
+	width: 100%;
+	position: relative;
+}
+#logo h2{
+	position: relative;
+	float: left;
+	letter-spacing: 1px;
+	text-transform: lowercase;
+	clear: none;
+	margin: 0;
+	padding: 0;
+	border: none;
+	font-size: 32px;
+	line-height: 32px;
+}
+#logo a{
+	text-decoration: none;
+	color: #000;
+}
+#logo .bubble{
+	position: absolute;
+	top: 0px;
+	right: -20px;
+	display: block;
+	width: 20px;
+	height: 20px; 
+	background-image: url(img/bubble_256x256.png);	
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+#logo .title{
+	float: left;
+	position: absolute;
+	left: 20em;
+	clear: none;
+	margin: 0;
+	font-size: 10px;
+}
+#main pre{
+	font-size: 12px;
+	padding: 5px;
+	-webkit-border-radius: 5px;
+	background-image: url(img/cukester.png);
+	background-repeat: no-repeat;
+	background-position: 98% 100%;
+	background-size: 7%;
+}
+
+#nav{
+	position: absolute;
+	background: #333;
+	top: 0;
+	left: 0;
+	float: left;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+#nav a{
+	color:#DDD;
+	text-decoration: none;			
+}
+
+#nav li{
+	float: left;
+	list-style: none;
+	padding: 5px 1.8%;
+	width: 13%;
+	overflow: hidden;
+	white-space: nowrap;
+	cursor: pointer;
+}
+#nav li:hover{
+	background: #444;
+}
+#nav li:hover a{
+	color: #FF0;
+}
+#nav li h4{
+	font-size: 11px;
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+#nav li p{
+	display: none;
+}
+
+
+#main{
+	background: white;
+	margin-top: 1em;
+	padding: .1em 2%;
+	width: 96%;
+	border-radius: 5px;
+}
+
+
+table{
+	width: 100%;
+	border-collapse: collapse;
+	border: 1px solid #EEE;
+}
+tr:nth-child(even){
+	background: #f6f6f6;
+}
+th{
+	background-color: #EEE;
+}
+
+th, td{
+	text-align: left;
+	border-bottom: 1px solid #EEE;
+	padding: 2px 7px;
+}
+
+/* @end */
