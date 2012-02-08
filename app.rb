@@ -1,7 +1,4 @@
 require 'sinatra'
+require 'less'
 
 set :server, :thin
-
-get '/' do
-  'Hello world!'
-end
