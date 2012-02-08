@@ -20,3 +20,5 @@ file 'public/css/bootstrap.css' => FileList['submodules/bootstrap/less/*'] do
 end
 
 task :bootstrap => ['public/css/bootstrap.css']
+
+task :default => [:bootstrap]
