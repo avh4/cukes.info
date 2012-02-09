@@ -1,10 +1,16 @@
+pre.sh_sourceCode {
+    line-height: 18px;
+}
+
 pre.sh_sourceCode code {
+    color: #839496;
     border: 0;
+    font-family: Menlo, Monaco, "Courier New", monospace;
+    font-size: 12px;
 }
 
 pre.sh_sourceCode {
     background-color: #002b36;
-    color: #839496;
 }
 
 pre.sh_sourceCode .sh_keyword {
