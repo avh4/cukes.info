@@ -7,19 +7,19 @@ Feature: Hello
 
 And some code:
 
-```ruby.header-stepdefs
+```ruby.group1
 Given /some regexp/ do
 end
 ```
 
-```java.header-stepdefs
+```java.group1
 @Given("some regexp")
 public void someRegexp() {
   
 }
 ```
 
-```javascript.header-stepdefs
+```javascript.group1
 Given(/some regexp/, function() {
   
 });
@@ -29,9 +29,3 @@ Run it:
 
 <pre class="sh_sourceCode"><code><span class="sh_regexp">$</span> cucumber
 </code></pre>
-
-Fix the problem and run again:
-
-```
-$ cucumber
-```

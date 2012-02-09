@@ -2,41 +2,34 @@ $(document).ready(function() {
   function menufy(selector, classNames) {
     var elements = $(selector);
 
-    var first = elements.hide().first().show();
-    var nav = first.before("<nav></nav>").parent().find('nav').last();
+    // show the first and hide the rest
+    var first = elements.first();
+
+    var tabs = first.before('<ul class="tabs nav nav-tabs"></ul>').parent().find('ul').last();
 
     elements.each(function(n, element) {
       element = $(element);
       for(var className in classNames) {
         if(element.hasClass(className)) {
-          var a = nav.append("<a href='#'>" + classNames[className] + "</a>").find('a').last();
-          a.click(function(e) {
-            elements.hide();
-            element.show();
-            e.preventDefault();
-          });
+          tabs.append('<li><a href="#' + element.attr('id') + '">' + classNames[className] + '</a></li>');
         }
       }
     });
   }
   
   var progLangClassNames = {
-    sh_java: 'Java',
-    sh_ruby: 'Ruby',
-    sh_javascript: 'JavaScript',
-    sh_python: 'Python',
-    sh_csharp: 'C#',
-    sh_scala: 'Scala',
-    sh_xml: 'XML'
+    'sh_java': 'Java',
+    'sh_ruby': 'Ruby',
+    'sh_javascript': 'JavaScript',
+    'sh_python': 'Python',
+    'sh_csharp': 'C#',
+    'sh_scala': 'Scala',
+    'sh_xml': 'XML'
   };
-  
-  var platformClassNames = {
-    'ruby': 'Ruby',
-    'cucumber-jvm': 'Cucumber-JVM',
-    'maven': 'Maven'
-  };
-  
-  menufy('.header-stepdefs', progLangClassNames);
-  menufy('.install', platformClassNames);
 
+  // TODO - add some standard groups like group1, group2, group3 etc
+  menufy('.group1', progLangClassNames);
+  setTimeout(function() {
+    $('.tabs').tab('show');
+  }, 200);
 });

@@ -10,8 +10,11 @@ class SuperHTML < Redcarpet::Render::HTML
       code_classes = $2.split('.')
     end
     language ||= 'sourceCode'
+
     classes = ["sh_#{language}", code_classes].flatten.compact.join(' ')
-    %{<pre class="#{classes}"><code>#{CGI::escapeHTML(code)}</code></pre>}
+    id = code_classes.any? ? [language, code_classes].flatten.compact.join('-') : nil
+    idattr = id ? %{ id="#{id}"} : ""
+    %{<pre class="#{classes}"#{idattr}><code>#{CGI::escapeHTML(code)}</code></pre>}
   end
 end
 
