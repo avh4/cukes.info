@@ -2,16 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bootstrap, from Twitter</title>
+    <title>Cucumber</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <!-- Le styles -->
     <link href="/css/bootstrap.css" rel="stylesheet">
     <style>
       body {
@@ -19,8 +18,8 @@
       }
     </style>
     <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/css/shjs.css" rel="stylesheet">
 
-    <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="/images/favicon.ico">
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
@@ -44,19 +43,16 @@
               <li><a href="#about">About</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
-          </div><!--/.nav-collapse -->
+          </div>
         </div>
       </div>
     </div>
 
     <div class="container">
       <%= yield %>
-    </div> <!-- /container -->
+    </div>
 
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/js/jquery.js"></script>
+    <script src="/js/jquery-1.7.1.min.js"></script>
     <script src="/js/bootstrap-transition.js"></script>
     <script src="/js/bootstrap-alert.js"></script>
     <script src="/js/bootstrap-modal.js"></script>
@@ -70,5 +66,14 @@
     <script src="/js/bootstrap-carousel.js"></script>
     <script src="/js/bootstrap-typeahead.js"></script>
 
+    <script src="/js/sh_main.min.js"></script>
+    <script src="/js/sh_gherkin_en.js"></script>
+    <script src="/js/sh_xml.min.js"></script>
+    <script src="/js/sh_html.min.js"></script>
+    <script src="/js/sh_ruby.min.js"></script>
+    <script src="/js/sh_sh.min.js"></script>
+    <script src="/js/sh_java.min.js"></script>
+    <script src="/js/sh_javascript.min.js"></script>
+    <script>sh_highlightDocument();</script>
   </body>
 </html>

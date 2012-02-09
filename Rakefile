@@ -1,6 +1,8 @@
 require 'rake/clean'
 require 'less'
 
+##### Bootstrap CSS
+
 bs     = File.expand_path('public/css/bootstrap.css')
 bsmin  = File.expand_path('public/css/bootstrap.min.css')
 bsr    = File.expand_path('public/css/bootstrap-responsive.css')
@@ -21,4 +23,24 @@ end
 
 task :bootstrap => ['public/css/bootstrap.css']
 
-task :default => [:bootstrap]
+##### Bootstrap JS
+
+Dir['submodules/bootstrap/js/*.js'].each do |js|
+  target = "public/js/#{File.basename(js)}"
+  file target => js do
+    cp js, target
+  end
+  task :bootstrap => target
+end
+
+##### SHJS Gherkin
+
+Dir['submodules/gherkin-syntax-highlighters/shjs/*.js'].each do |js|
+  target = "public/js/#{File.basename(js)}"
+  file target => js do
+    cp js, target
+  end
+  task :shjs_gherkin => target
+end
+
+task :default => [:bootstrap, :shjs_gherkin]

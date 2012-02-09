@@ -1,3 +1,6 @@
 [submodule "submodules/bootstrap"]
 	path = submodules/bootstrap
 	url = git://github.com/twitter/bootstrap.git
+[submodule "submodules/gherkin-syntax-highlighters"]
+	path = submodules/gherkin-syntax-highlighters
+	url = git://github.com/cucumber/gherkin-syntax-highlighters.git
