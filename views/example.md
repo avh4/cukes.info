@@ -7,25 +7,28 @@ Feature: Hello
 
 And some code:
 
-```ruby.group1
+<TABS>
+#### Ruby
+```ruby
 Given /some regexp/ do
 end
 ```
 
-```java.group1
+#### Java
+```java
 @Given("some regexp")
 public void someRegexp() {
   
 }
 ```
 
-```javascript.group1
+#### JavaScript
+```javascript
 Given(/some regexp/, function() {
   
 });
 ```
-
-Run it:
+</TABS>
 
 <pre class="sh_sourceCode"><code><span class="sh_regexp">$</span> cucumber
 </code></pre>

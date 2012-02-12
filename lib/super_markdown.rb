@@ -1,20 +1,51 @@
 require 'redcarpet'
 require 'tilt'
 require 'cgi'
+require 'nokogiri'
 
 class SuperHTML < Redcarpet::Render::HTML
-  def block_code(code, language)
-    code_classes = []
-    if(/^([^\.]+)\.(.*)/ =~ language)
-      language = $1
-      code_classes = $2.split('.')
-    end
-    language ||= 'sourceCode'
+  def initialize(options={})
+    super(options.merge(:with_toc_data => true))
+  end
 
-    classes = ["sh_#{language}", code_classes].flatten.compact.join(' ')
-    id = code_classes.any? ? [language, code_classes].flatten.compact.join('-') : nil
-    idattr = id ? %{ id="#{id}"} : ""
-    %{<pre class="#{classes}"#{idattr}><code>#{CGI::escapeHTML(code)}</code></pre>}
+  def postprocess(html)
+    html.gsub!("<p><TABS></p>", '<div class="tab-content">')
+    html.gsub!("<p></TABS></p>", '</div>')
+    doc = Nokogiri::XML::DocumentFragment.parse(html)
+    
+    tabcontents = doc.css('.tab-content')
+    tab_id = 0
+    tabcontents.each do |tabcontent|
+      nav_ul = Nokogiri::XML::Node.new "ul", doc
+      tabcontent.add_previous_sibling(nav_ul)
+      nav_ul['class'] = 'nav nav-tabs'
+
+      tabs = tabcontent.css('h4')
+      tabs.each_with_index do |tab, n|
+        tab_div = Nokogiri::XML::Node.new "div", doc
+        tab_div['class'] = 'tab-pane'
+        tab_div['id'] = "tab-#{tab_id}"
+        tab.add_next_sibling(tab_div)
+        tab_div.next_element.parent = tab_div
+        
+        nav_li = Nokogiri::XML::Node.new "li", doc
+        nav_li.parent = nav_ul
+        nav_a = Nokogiri::XML::Node.new "a", doc
+        nav_a.parent = nav_li
+        nav_a['href'] = "#tab-#{tab_id}"
+        nav_a['data-toggle'] = "tab"
+        nav_a.content = tab.content
+        
+        tab.remove
+        tab_id += 1
+      end
+    end
+    
+    doc.to_html
+  end
+
+  def block_code(code, language)
+    %{<pre class="sh_#{language}"><code>#{CGI::escapeHTML(code)}</code></pre>}
   end
 end
 
@@ -23,6 +54,7 @@ class SuperMarkdown < Tilt::RedcarpetTemplate::Redcarpet2
     :fenced_code_blocks => true, 
     :tables => true,
     :autolink => true,
+    :lax_html_blocks => true,
     :renderer => SuperHTML.new
   }
   
