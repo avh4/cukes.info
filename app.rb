@@ -8,9 +8,12 @@ get '/' do
   markdown :index, {:layout => :layout, :layout_engine => :erb}
 end
 
-Dir['views/*.md'].each do |page|
-  name = File.basename(page)[0..-4]
-  get "/#{name}" do
-    markdown name.to_sym, {:layout => :layout, :layout_engine => :erb}
+(Dir['views/*.markdown'] + Dir['views/*.erb']).each do |page|
+  extension = File.extname(page)[1..-1]
+  name = File.basename(page)[0...-(extension.length+1)]
+  unless name =~ /^_/
+    get "/#{name}" do
+      render extension.to_sym, name.to_sym, {:layout => :_layout, :layout_engine => :erb}
+    end
   end
 end

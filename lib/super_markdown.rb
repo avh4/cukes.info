@@ -45,7 +45,7 @@ class SuperHTML < Redcarpet::Render::HTML
   end
 
   def block_code(code, language)
-    %{<pre class="sh_#{language}"><code>#{CGI::escapeHTML(code)}</code></pre>}
+    %{<pre class="sh_#{language || 'sourceCode'}"><code>#{CGI::escapeHTML(code)}</code></pre>}
   end
 end
 
