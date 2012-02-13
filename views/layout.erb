@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Cucumber</title>
+    <title>Cucumber - <%= Nokogiri::XML::DocumentFragment.parse(yield).css('h1')[0].content %></title>
     <meta name="description" content="">
     <meta name="author" content="">
 
