@@ -46,3 +46,6 @@ directly. These files are:
 * `public/js/sh_gherkin*.js`
 * `public/js/bootstrap-*.js`
 
+## Beta site
+
+Currently at http://hollow-flower-8501.heroku.com/example

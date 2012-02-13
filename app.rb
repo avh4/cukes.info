@@ -5,7 +5,7 @@ require 'super_markdown'
 set :server, :thin
 
 get '/' do
-  markdown :index, {:layout => :layout, :layout_engine => :erb}
+  markdown :index, {:layout => :_layout, :layout_engine => :erb}
 end
 
 (Dir['views/*.markdown'] + Dir['views/*.erb']).each do |page|
