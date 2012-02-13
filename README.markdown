@@ -18,6 +18,10 @@ Ruby 1.9.3 is recommended. You can install it with [RVM](http://beginrescueend.c
     gem install bundler
     bundle install
 
+### Generate/move some static assets from submodules to public
+
+    rake
+
 ### Start the server
 
     bundle exec rackup
