@@ -27,6 +27,7 @@ task :bootstrap => ['public/css/bootstrap.css']
 
 Dir['submodules/bootstrap/js/*.js'].each do |js|
   target = "public/js/#{File.basename(js)}"
+  CLEAN.include(target)
   file target => js do
     cp js, target
   end
@@ -37,6 +38,7 @@ end
 
 Dir['submodules/gherkin-syntax-highlighters/shjs/*.js'].each do |js|
   target = "public/js/#{File.basename(js)}"
+  CLEAN.include(target)
   file target => js do
     cp js, target
   end
