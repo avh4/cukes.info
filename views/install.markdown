@@ -63,6 +63,7 @@ The JUnit Runner lets you run Cucumber from an IDE, using the built-in JUnit sup
 
 Before you proceed - check what the latest available versions are. You can find out by searching for the packages at http://search.maven.org/ 
 
+<TABS>
 #### Maven
 
 Installing the various `cucumber-*` packages in a Maven project is just a matter of adding them to your pom.xml file.
@@ -97,6 +98,12 @@ Installing the various `cucumber-*` packages in a Maven project is just a matter
 ```
 
 You don't have to explicitly add a dependency on `cucumber-core` as all the other packages depend on it.
+
+#### Ant
+
+TODO: explain how to do this
+
+</TABS>
 
 #### JRuby
 

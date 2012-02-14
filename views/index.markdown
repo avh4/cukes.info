@@ -24,6 +24,16 @@ Feature: Hello
 ```gherkin_fr
 Fonctionnalité: Allô
 ```
+<TABS>
+#### French 1
+
+Bonjour
+
+#### French 2
+
+Monde
+
+</TABS>
 
 #### Norwegian
 ```gherkin_no

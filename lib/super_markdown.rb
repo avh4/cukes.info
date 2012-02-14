@@ -20,7 +20,7 @@ class SuperHTML < Redcarpet::Render::HTML
       tabcontent.add_previous_sibling(nav_ul)
       nav_ul['class'] = 'nav nav-tabs'
 
-      tabs = tabcontent.css('h4')
+      tabs = tabcontent.xpath('./h4')
       tabs.each_with_index do |tab, n|
         tab_div = Nokogiri::XML::Node.new "div", doc
         tab_div['class'] = 'tab-pane'
