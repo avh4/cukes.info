@@ -2,7 +2,8 @@
 
 Cucumber runs on many different platforms, and the installation procedure depends on what platform you are using.
 
-## Cucumber Classic (Ruby and JRuby)
+<TABS>
+#### Cucumber Classic (Ruby and JRuby)
 
 Cucumber is a ruby gem, and can be installed from the command line:
 
@@ -24,7 +25,7 @@ And have Bundler install it:
 bundle install
 ```
 
-## Cucumber-JVM
+#### Cucumber-JVM
 
 Cucumber-JVM is a collection of software packages that lets you use Cucumber with various JVM languages, frameworks and build tools. Depending
 on your needs you will need 1, 2 or 3 packages. The language-specific packages are as follows:
@@ -62,7 +63,7 @@ The JUnit Runner lets you run Cucumber from an IDE, using the built-in JUnit sup
 
 Before you proceed - check what the latest available versions are. You can find out by searching for the packages at http://search.maven.org/ 
 
-### Maven
+#### Maven
 
 Installing the various `cucumber-*` packages in a Maven project is just a matter of adding them to your pom.xml file.
 
@@ -97,7 +98,7 @@ Installing the various `cucumber-*` packages in a Maven project is just a matter
 
 You don't have to explicitly add a dependency on `cucumber-core` as all the other packages depend on it.
 
-### JRuby
+#### JRuby
 
 Cucumber-JVM is packaged as a Ruby gem, and can be installed as follows:
 
@@ -114,3 +115,5 @@ group :test do
   gem 'cucumber-jvm'
 end
 ```
+
+</TABS>

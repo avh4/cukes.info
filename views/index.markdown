@@ -1,6 +1,12 @@
 # Welcome
 
-Hello...
+Produce software that does what you want when you want it.
+Stop wasting time writing crap.
+
+### Download
+### Install
+### 
+
 
 ## More
 

@@ -25,9 +25,16 @@ class SuperHTML < Redcarpet::Render::HTML
         tab_div = Nokogiri::XML::Node.new "div", doc
         tab_div['class'] = 'tab-pane'
         tab_div['id'] = "tab-#{tab_id}"
+        # Move all siblings until the next header
+        next_element = tab.next_element
+        while(next_element && next_element.node_name != 'h4') do
+          n = next_element.next_element
+          next_element.parent = tab_div
+          next_element = n
+        end
         tab.add_next_sibling(tab_div)
-        tab_div.next_element.parent = tab_div
-        
+
+        # Build the tab menu
         nav_li = Nokogiri::XML::Node.new "li", doc
         nav_li.parent = nav_ul
         nav_a = Nokogiri::XML::Node.new "a", doc
