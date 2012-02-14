@@ -27,15 +27,15 @@ bundle install
 
 #### Cucumber-JVM
 
-Cucumber-JVM is a collection of software packages that lets you use Cucumber with various JVM languages, frameworks and build tools. Depending
-on your needs you will need 1, 2 or 3 packages. The language-specific packages are as follows:
+Cucumber-JVM is a set of modules (jars) that lets you use Cucumber with various JVM languages, frameworks and build tools. Depending
+on your needs you will need 1, 2 or 3 modules. The language-specific packages are as follows:
 
 | Language/Platform              | Jar file            |
 | ------------------------------ | ------------------- |
+| Java                           | `cucumber-java`     |
 | Clojure                        | `cucumber-clojure`  |
 | Groovy                         | `cucumber-groovy`   |
 | Ioke                           | `cucumber-ioke`     |
-| Java                           | `cucumber-java`     |
 | JavaScript (Rhino interpreter) | `cucumber-rhino`    |
 | Python (Jython interpreter)    | `cucumber-jython`   |
 | Ruby (JRuby interpreter)       | `cucumber-jruby`    |
@@ -46,6 +46,7 @@ If you are using Java you will be writing step definitions in plain old Java cla
 | Dependency Injection Container | Jar file                 |
 | ------------------------------ | ------------------------ |
 | PicoContainer                  | `cucumber-picocontainer` |
+| OpenEJB                        | `cucumber-openejb`       |
 | Spring                         | `cucumber-spring`        |
 | Weld                           | `cucumber-weld`          |
 | Guice                          | `cucumber-guice`         |
@@ -59,7 +60,7 @@ In order to run your Cucumber Features and Scenarios you can choose between the 
 | Command Line Interface         | `cucumber-core`          |
 | JUnit Runner                   | `cucumber-junit`         |
 
-The JUnit Runner lets you run Cucumber from an IDE, using the built-in JUnit support. It can also be used from build tools that support JUnit explicitly. If you don't care about any of those, just go for the Command Line Interface.
+The JUnit Runner lets you run Cucumber from an IDE, using the built-in JUnit support. It can also be used from build tools that support JUnit explicitly. If you don't care about any of those, just go for the [Command Line Interface](cli).
 
 Before you proceed - check what the latest available versions are. You can find out by searching for the packages at http://search.maven.org/ 
 
@@ -73,13 +74,13 @@ Installing the various `cucumber-*` packages in a Maven project is just a matter
     <dependency>
         <groupId>info.cukes</groupId>
         <artifactId>cucumber-junit</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.0</version>
         <scope>test</scope>
     </dependency>
     <dependency>
         <groupId>info.cukes</groupId>
         <artifactId>cucumber-picocontainer</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.0</version>
         <scope>test</scope>
     </dependency>
     <dependency>
