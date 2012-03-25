@@ -24,50 +24,38 @@ public class super_duper {
 
 When this JUnit test is run, it will execute the `Cucumber` JUnit runner, which will look for a `.feature` file to run. In this case, it will try to load `my/app/super_duper.feature` from the `CLASSPATH`. The path name is derived from the class.
 
-You can override the path to the `.feature` file with an additional `@Feature` annotation:
+
+#### Options Available
+
+There is a `Cucumber.Options` annotation that is available to use to customize the execution of Cucumber.
 
 ```java
-package my.app;
-
-import cucumber.junit.Cucumber;
-import cucumber.junit.Feature;
-import org.junit.runner.RunWith;
-
-@RunWith(Cucumber.class)
-@Feature("something.feature")
-public class super_duper {
-    // No code in the class!
-}
+@Cucumber.Options( features = "something.feature", dry_run = "true", tags= {"@oneTag", "@twoTag"}, glue = "gluePath")
 ```
 
-In this case, it will try to load `something.feature` instead of `my/app/super_duper.feature`.
-
-You can also run several features by pointing to a "directory" on the `CLASSPATH`:
-
-*Not implemented*
+You can specify which feature files you want to execute for this test using the features parameter of the Options annotation
 
 ```java
-// Run all features on the CLASSPATH under "my"
-@Feature("my/**/*.feature")
+@Cucumber.Options(features = {"myFirstFeature.feature", "mySecondFeature.feature"})
+
+@Cucumber.Options(features = "someFolder/*.feature")
 ```
 
-Or:
-
-*Not implemented*
+You can also make it a dry run, which will simply invoke the formatters and run through the scenario without actually executing any of the steps.
+Could be useful to see what your scenario will look like.
 
 ```java
-// Run all features on the CLASSPATH, regardless of path
-@Feature("**/*.feature")
+@Cucumber.Options(dry_run = "true", features = "myFeature.feature" )
 ```
 
-If you are using a "directory", it can sometimes be handy to use [tag expressions](/tag-expressions.html) to include or exclude certain features or scenarios:
-
-*Not implemented*
+You can also specify the glue path, which in most cases you will not need to do, as most IDEs and Build tools properly throw the right things into
+the classpath for your Junit tests. If it doesn't, or you're executing it a special way, you can specify the locations to look for Step Definitions using
+that parameter
 
 ```java
-// Run all features not tagged with @slow
-@Feature(value="**/*.feature", tags={"~@slow"})
+@Cucumber.Options(features = "something.feature", glue = "com.example.stepdefs")
 ```
+
 ### Command Line Interface (CLI)
 
 The Cucumber-JVM CLI is primarily intended for platforms where JUnit isn't an integrated part, for example JRuby or Rhino JavaScript.
