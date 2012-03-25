@@ -1,11 +1,11 @@
 # Installing Cucumber
 
-Cucumber runs on many different platforms, and the installation procedure depends on what platform you are using.
+Cucumber runs on many different platforms, and the installation procedure depends on what programming language you are using, and also what kind of build tool you are using. 
 
 <TABS>
-#### Cucumber Classic (Ruby and JRuby)
+#### Cucumber-Ruby
 
-Cucumber is a ruby gem, and can be installed from the command line:
+Cucumber for Ruby is a ruby gem, and can be installed from the command line:
 
 ```
 gem install cucumber
@@ -25,10 +25,26 @@ And have Bundler install it:
 bundle install
 ```
 
+After this you should have a `cucumber` command that you can try out:
+
+```
+cucumber --help
+```
+
+Or if you want to run it with the Bundler environment:
+
+```
+bundle exec cucumber --help
+```
+
+
 #### Cucumber-JVM
 
-Cucumber-JVM is a set of modules (jars) that lets you use Cucumber with various JVM languages, frameworks and build tools. Depending
-on your needs you will need 1, 2 or 3 modules. The language-specific packages are as follows:
+Cucumber-JVM consists of several modules (jars). You will always need the `cucumber-core` module, which contains the main logic for parsing and executing your Gherkin feature files.
+
+### Programming Language modules
+
+In addition to `cucumber-core` you will also need a programming language-specific module, depending on what programming language you are using. The available programming language modules are:
 
 | Language/Platform              | Jar file            |
 | ------------------------------ | ------------------- |
@@ -41,52 +57,56 @@ on your needs you will need 1, 2 or 3 modules. The language-specific packages ar
 | Ruby (JRuby interpreter)       | `cucumber-jruby`    |
 | Scala                          | `cucumber-scala`    |
 
-If you are using Java you will be writing step definitions in plain old Java classes. The `cucumber-java` package requires an additional Dependency Injection package for instantiating those classes. You can use any of the following:
+### Dependency Injection modules (for Java)
+
+If your programming language is Java you will be writing glue code ([Step Definitions](step-definitions) and [Hooks](hooks)) in plain old Java classes. Cucumber will create a new instance of each of your glue code classes before each [Scenario](gherkin#scenario). If all of your glue code classes have an empty constructor you don't need anything else. However, most projects will benefit from a [Dependency Injection](dependency-injection) module to organize your code better.
+
+The available Dependency Injection modules are:
 
 | Dependency Injection Container | Jar file                 |
 | ------------------------------ | ------------------------ |
 | PicoContainer                  | `cucumber-picocontainer` |
+| Guice                          | `cucumber-guice`         |
 | OpenEJB                        | `cucumber-openejb`       |
 | Spring                         | `cucumber-spring`        |
 | Weld                           | `cucumber-weld`          |
-| Guice                          | `cucumber-guice`         |
 
-(If you're not using a Dependency Injection container in your own code we recommend `cucumber-picocontainer` since it doesn't require any configuration).
+### Runners
 
-In order to run your Cucumber Features and Scenarios you can choose between the following:
+There are two ways to run Gherkin Features with Cucumber-JVM:
 
 | Runner                         | Jar file                 |
 | ------------------------------ | ------------------------ |
 | Command Line Interface         | `cucumber-core`          |
 | JUnit Runner                   | `cucumber-junit`         |
 
-The JUnit Runner lets you run Cucumber from an IDE, using the built-in JUnit support. It can also be used from build tools that support JUnit explicitly. If you don't care about any of those, just go for the [Command Line Interface](cli).
+The JUnit Runner lets you run Cucumber from any tool that understands JUnit. This includes IDEs (such ash IntelliJ or Eclipse) and build tools (such as Ant, Maven or Gradle).
 
-Before you proceed - check what the latest available versions are. You can find out by searching for the packages at http://search.maven.org/ 
+Any build tool can execute command line programs (Cucumber's Command Line Interface), so if you prefer this way to run your features you don't need the `cucumber-junit` module.
+
+This should help you pick the 2 or 3 modules you need. Let's install them:
 
 <TABS>
+#### Manual download
+
+You can browse your way to the modules you need in the [Sonatype](https://oss.sonatype.org/content/repositories/releases/info/cukes/) repository.
+
 #### Maven
 
-Installing the various `cucumber-*` packages in a Maven project is just a matter of adding them to your pom.xml file.
+Installing the various `cucumber-*` modules in a Maven project is just a matter of adding them to your pom.xml file.
 
 ```xml
 <dependencies>
     <dependency>
         <groupId>info.cukes</groupId>
-        <artifactId>cucumber-junit</artifactId>
+        <artifactId>cucumber-java</artifactId>
         <version>1.0.0</version>
         <scope>test</scope>
     </dependency>
     <dependency>
         <groupId>info.cukes</groupId>
-        <artifactId>cucumber-picocontainer</artifactId>
+        <artifactId>cucumber-junit</artifactId>
         <version>1.0.0</version>
-        <scope>test</scope>
-    </dependency>
-    <dependency>
-        <groupId>org.picocontainer</groupId>
-        <artifactId>picocontainer</artifactId>
-        <version>2.14.1</version>
         <scope>test</scope>
     </dependency>
     <dependency>
@@ -100,28 +120,37 @@ Installing the various `cucumber-*` packages in a Maven project is just a matter
 
 You don't have to explicitly add a dependency on `cucumber-core` as all the other packages depend on it.
 
-#### Ant
+#### Ant without Ivy
 
-TODO: explain how to do this
+You can make Ant download all the jars for you like so:
+
+```xml
+<property name="repo" value="https://oss.sonatype.org/content/repositories/releases"/>
+<property name="cucumber-jvm.version" value="1.0.0.RC24"/>
+<property name="gherkin.version" value="2.9.1"/>
+<property name="jars" value="target/lib"/>
+
+<target name="download">
+    <mkdir dir="${jars}"/>
+    <get src="${repo}/info/cukes/cucumber-core/${cucumber-jvm.version}/cucumber-core-${cucumber-jvm.version}.jar"
+         dest="${jars}/cucumber-core-${cucumber-jvm.version}.jar"/>
+    <get src="${repo}/info/cukes/cucumber-java/${cucumber-jvm.version}/cucumber-java-${cucumber-jvm.version}.jar"
+         dest="${jars}/cucumber-java-${cucumber-jvm.version}.jar"/>
+    <get src="${repo}/info/cukes/cucumber-junit/${cucumber-jvm.version}/cucumber-junit-${cucumber-jvm.version}.jar"
+         dest="${jars}/cucumber-junit-${cucumber-jvm.version}.jar"/>
+    <get src="${repo}/info/cukes/gherkin/${gherkin.version}/gherkin-${gherkin.version}.jar"
+         dest="${jars}/gherkin-${gherkin.version}.jar"/>
+</target>
+```
+
+#### Ant with Ivy
+
+Can someone write this please?
 
 </TABS>
 
-#### JRuby
+#### Cucumber-JS
 
-Cucumber-JVM is packaged as a Ruby gem, and can be installed as follows:
-
-```
-$ jruby -S gem install cucumber-jvm
-```
-
-Alternatively, if you are using [Bundler](http://gembundler.com/) you can use a `Gemfile`:
-
-```ruby
-source :rubygems
-
-group :test do
-  gem 'cucumber-jvm'
-end
-```
+TODO
 
 </TABS>
